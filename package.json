@@ -4,6 +4,7 @@
   "description": "Amazing test task from Bandapixel company",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "serve": "nodemon index.js"
   },
   "author": "Evheniq Matvienko",
