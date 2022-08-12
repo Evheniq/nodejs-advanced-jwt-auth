@@ -84,9 +84,8 @@ class UserService{
     if(!refreshToken){
       throw ApiError.UnauthorizedError();
     }
-    const userData = TokenService.validateRefreshToken(refreshToken);
-    const tokenFromDB = TokenService.findRefreshToken(refreshToken);
-
+    const userData = await TokenService.validateRefreshToken(refreshToken);
+    const tokenFromDB = await TokenService.findRefreshToken(refreshToken);
     if(!userData || !tokenFromDB) {
       throw ApiError.UnauthorizedError();
     }

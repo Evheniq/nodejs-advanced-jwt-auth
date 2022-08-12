@@ -4,7 +4,7 @@ Published: https://bandapixel-test.herokuapp.com
 ## Need to create REST API server with bearer token auth.
 - [x] Setup `CORS` to allow access from any domain. 
 - [x] DB - any. (I chose MySQL)
-- [ ] Token should have expiration time 10 mins and extend it on any user request (except `singin`/`logout`)
+- [x] Token should have expiration time 10 mins and extend it on any user request (except `singin`/`logout`)
 ### --- API endpoints ---
 - [x] /signin [POST] - request for bearer token by `id` and `password`
 - [x] /signup [POST] - creation of new user
@@ -18,7 +18,8 @@ Published: https://bandapixel-test.herokuapp.com
     
 ## Additional from myself
 - [ ] TypeScript
-- [ ] Accesses by token middleware
+- [x] Accesses by token middleware
+- [ ] Auto refresh token cleaner from DB
 - [x] Error Handler Middleware
 - [ ] Tests (jest + supertest)
 - [ ] CI/CD
