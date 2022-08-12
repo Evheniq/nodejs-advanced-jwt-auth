@@ -15,14 +15,14 @@ async function resetDatabases(){
     console.log(e.message);
   }
 
-  await tokenService._createTokenTable();
   await userService._createUserAuthTable();
+  await tokenService._createTokenTable();
   return 'Databases clear'
 }
 
 async function tokenCleaner(){
   /*
-    Database Cleaner for old refresh tokens from DB.
+    TODO Database Cleaner for old refresh tokens from DB.
     It cleans at program startup and every 24 hours
   */
 

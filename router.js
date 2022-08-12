@@ -1,8 +1,8 @@
 const Router = require('express');
 const router = new Router();
-const authController = require('./authController');
+const authController = require('./Controllers/authController');
 const {check} = require('express-validator');
-const tokenService = require('./Services/tokenService')
+const Ping = require ("ping-lite");
 
 router.route('/signin')
   .post(
@@ -23,16 +23,35 @@ router.route('/signup')
   );
 
 router.route('/info').get((req, res) => {
-  res.json({message: '/info'});
+  const newTokens = req.jwt
+  res.json({message: '/info', newTokens});
 });
 
 router.route('/latency').get((req, res) => {
-  res.json({message: '/latency'});
+  const newTokens = req.jwt;
+
+  // Old lib way. Work ideal
+  const ping = new Ping('google.com');
+
+  ping.send(function(err, ms) {
+    res.json({message: '/latency', latency: ms+' ms.', newTokens});
+  });
+
+
+  // AXIOS way. Work not ideal
+  // const timeBefore = Date.now();
+  // const getGoogle = await axios.post('https://google.com');
+  // const timeAfter = Date.now();
+
+  // const latency = getGoogle.status === 200 ? timeAfter - timeBefore + ' ms' : 'Error connection to Google';
+  // res.json({message: '/latency', latency, newTokens});
 });
 
-router.route('/logout').get((req, res) => {
-  res.json({message: '/logout'});
-
-});
+router.route('/logout')
+  .get([
+    check('id', 'Id is empty').notEmpty(),
+    check('refresh_token', 'Refresh Token is empty').notEmpty(),
+    check('all', '"All" param is empty').notEmpty()
+  ], authController.logout);
 
 module.exports = router;
