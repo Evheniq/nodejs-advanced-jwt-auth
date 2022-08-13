@@ -71,6 +71,7 @@ npm run serve
 
 ## /info [GET]
 `Authorization required`
+
 **Params:**
 ![alt text](./readmeImages/info_params.png)
 
@@ -79,6 +80,7 @@ npm run serve
 
 ## /latency [GET]
 `Authorization required`
+
 **Params:**
 ![alt text](./readmeImages/info_params.png)
 
@@ -87,6 +89,7 @@ npm run serve
 
 ## /logout [GET]
 `Authorization required`
+
 **Params:**
 ![alt text](./readmeImages/logout_params.png)
 
