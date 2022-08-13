@@ -111,8 +111,8 @@ _Coming soon_
 ## Base logs
 ![alt text](./readmeImages/base_logs_Mezmo.png)
 
-## Charts logs
-![alt text](./readmeImages/base_logs_Mezmo.png)
+## Board
+![alt text](./readmeImages/board_Mezmo.png)
 
-## Base logs
-![alt text](./readmeImages/base_logs_Mezmo.png)
+## Monitor
+![alt text](./readmeImages/monitors_Mezmo.png)
