@@ -17,24 +17,102 @@ Published: https://bandapixel-test.herokuapp.com
     -	`false` - removes only current token
     
 ## Additional from myself
-- [ ] TypeScript
 - [x] Accesses by token middleware
-- [ ] Auto refresh token cleaner from DB
+- [x] Auto refresh token cleaner from DB
 - [x] Error Handler Middleware
-- [ ] Tests (jest + supertest)
-- [ ] CI/CD
-- [ ] Docker
 - [x] Add monitoring app integration (Mezmo)
 - [x] Auto publish from Github to Heroku
 
-# How to start app from Docker
-...
+### Not yet
+- [ ] TypeScript
+- [ ] Tests (jest + supertest)
+- [ ] CI/CD
+- [ ] Docker
 
-# Architecture
-...
+# How to start app
+1) Clone project
+2) Create `environment variables` or create file `.env` with same fields
+```
+PORT=
+
+DB_DATABASE=
+DB_HOST=
+DB_PASSWORD=
+DB_USER=
+
+JWT_ACCESS_SECRET=
+JWT_REFRESH_SECRET=
+```
+3) `npm install`
+4) For create tables - run `resetDatabases()` method from `utils.js`
+5) Then start project by commands:
+```
+npm start
+```
+or for dev
+```
+npm run serve
+```
+
+# API
+## /signin [POST]
+**Params:**
+![alt text](./readmeImages/signin_params.png)
+
+**Output:**
+![alt text](./readmeImages/signin_output.png)
+
+## /signup [POST]
+**Params:**
+![alt text](./readmeImages/signup_params.png)
+
+**Output:**
+![alt text](./readmeImages/signin_output.png)
+
+## /info [GET]
+`Authorization required`
+**Params:**
+![alt text](./readmeImages/info_params.png)
+
+**Output:**
+![alt text](./readmeImages/info_output.png)
+
+## /latency [GET]
+`Authorization required`
+**Params:**
+![alt text](./readmeImages/info_params.png)
+
+**Output:**
+![alt text](./readmeImages/latency_output.png)
+
+## /logout [GET]
+`Authorization required`
+**Params:**
+![alt text](./readmeImages/logout_params.png)
+
+**Output:**
+![alt text](./readmeImages/logout_output.png)
+
+## Authorization
+For this page you must use Bearer jwt access token in header. 
+And send refresh token, if you need to refresh it.
+
+# Work flow
+![alt text](./readmeImages/base_work_flow.jpg)
+
+## Router flow
+_Coming soon_
 
 # Database diagram
-...
+![alt text](./readmeImages/db_diagram.jpg)
 
 # Monitoring by Mezmo
-...
+
+## Base logs
+![alt text](./readmeImages/base_logs_Mezmo.png)
+
+## Charts logs
+![alt text](./readmeImages/base_logs_Mezmo.png)
+
+## Base logs
+![alt text](./readmeImages/base_logs_Mezmo.png)

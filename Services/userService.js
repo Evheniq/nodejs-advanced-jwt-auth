@@ -31,8 +31,6 @@ class UserService{
     console.log('Table usersAuth dropped');
   }
 
-  //  TODO add all SQL queries from authController
-
   async _checkUser(id){
     const checkId = await db.execute(`SELECT * FROM userAuth WHERE person_id = '${id}';`);
     return checkId[0][0];
@@ -66,10 +64,6 @@ class UserService{
     }
 
     return TokenService.generateAccessToken(userInDb.person_id, userInDb.id_type);
-  }
-
-  async getUserInfo(token){
-
   }
 
   async logoutByTokenOne(refreshToken){

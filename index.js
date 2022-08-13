@@ -4,13 +4,13 @@ const Router = require('./router');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const requestLogger = require('./Middlewares/requestLogger');
-const {resetDatabases, tokenCleaner} = require('./utils');
+const {tokenCleaner} = require('./utils');
 const errorHandler = require('./Middlewares/errorHandler')
 const refresherToken = require('./Middlewares/refresherToken');
 const authRequired = require('./Middlewares/authRequired');
 
-// resetDatabases();
-tokenCleaner(); // Cleaner for old refresh tokens from DB.
+// Cleaner for old refresh tokens from DB at start app and every 24 hours.
+tokenCleaner();
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -28,7 +28,7 @@ app.use(requestLogger);
 
   As you can see, the set of urls is not the same for updating tokens and required authorization in real project
  */
-app.use(authRequired({forbidden: ['/signin', '/signup', '/logout']}));
+app.use(authRequired({forbidden: ['/signin', '/signup']}));
 app.use(refresherToken({forbidden: ['/signin', '/signup', '/logout']}));
 
 app.use(Router);

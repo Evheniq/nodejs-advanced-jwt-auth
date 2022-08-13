@@ -51,10 +51,6 @@ class authController {
     }
   }
 
-  async getUserData(req, res, next){
-
-  }
-
   async logout(req, res, next){
     try{
       let errors = validationResult(req);
@@ -63,14 +59,15 @@ class authController {
       }
 
       const {id, refresh_token, all} = req.body;
-
-      if(all){
+      console.log('all', all, all.type)
+      const doNeedToDeleteAll = all === 'true';
+      if(doNeedToDeleteAll){
         await UserService.logoutByIdAll(id);
       } else {
         await UserService.logoutByTokenOne(refresh_token);
       }
 
-      res.json({message: `Logout by ${all ? 'Id all RefreshTokens' : 'this RefreshToken'}`});
+      res.json({message: `Logout by ${doNeedToDeleteAll ? 'Id all RefreshTokens' : 'this RefreshToken'}`});
     } catch (e) {
       next(e);
     }

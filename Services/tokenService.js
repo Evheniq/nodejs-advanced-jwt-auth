@@ -86,6 +86,15 @@ class TokenService{
     const checkToken = await db.execute(`SELECT * FROM usertoken WHERE refresh_token = '${token}';`);
     return checkToken[0][0];
   }
+
+  async deleteOldTokens(){
+    await db.execute(`DELETE FROM usertoken WHERE created_at < now() - interval 30 DAY;`)
+  }
+
+  getDataFromRefresh(token){
+    const data = jwt.verify(token, process.env.JWT_REFRESH_SECRET);
+    return {id: data.id, id_type: data.id_type};
+  }
 }
 
 module.exports = new TokenService();
