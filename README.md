@@ -94,6 +94,7 @@ npm run serve
 ![alt text](./readmeImages/logout_params.png)
 
 **Output:**
+
 ![alt text](./readmeImages/logout_output.png)
 
 ## Authorization
