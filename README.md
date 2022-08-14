@@ -64,10 +64,10 @@ npm run serve
 
 ## /signup [POST]
 **Params:**
-![alt text](./readmeImages/signup_params.png)
+![alt text](./readmeImages/signin_params.png)
 
 **Output:**
-![alt text](./readmeImages/signin_output.png)
+![alt text](./readmeImages/signup_params.png)
 
 ## /info [GET]
 `Authorization required`
