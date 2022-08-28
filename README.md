@@ -1,4 +1,4 @@
-# BandaPixel-nodejs-test
+# nodejs-advanced-jwt-auth 
 Published: https://bandapixel-test.herokuapp.com
 
 ## Need to create REST API server with bearer token auth.
@@ -9,7 +9,7 @@ Published: https://bandapixel-test.herokuapp.com
 - [x] /signin [POST] - request for bearer token by `id` and `password`
 - [x] /signup [POST] - creation of new user
 	- Fields `id` and `password`. `Id` - phone number or email. After signup add field `id_type` - phone or email
-	-	In case of successful signup - return token
+	- In case of successful signup - return token
 - [x] /info [GET] - returns user id and id type
 - [x] /latency [GET] - returns service server latency for `google.com`
 - [x] /logout [GET] - with param `all`:
